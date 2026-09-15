@@ -7,6 +7,12 @@ function kubeoff() {
   unset STARSHIP_KUBE
 }
 
+# https://docs.cloud.google.com/sdk/docs/install-sdk
+GCLOUD_SDK_DIR="${HOMEBREW_PREFIX:-/opt/homebrew}/share/google-cloud-sdk"
+if [ -r "$GCLOUD_SDK_DIR/path.zsh.inc" ]; then
+  source "$GCLOUD_SDK_DIR/path.zsh.inc"
+fi
+
 # https://kubecolor.github.io/
 if command -v kubecolor >/dev/null 2>&1; then
   alias kubectl='kubecolor'
